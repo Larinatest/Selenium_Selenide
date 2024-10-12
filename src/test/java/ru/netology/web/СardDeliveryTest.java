@@ -33,11 +33,11 @@ public class СardDeliveryTest {
         String planing = formatDate(4, "dd.MM.yyyy");
         SelenideElement form = $(".form");
 
-        form.$("[data-test-id='city'] .input__control").setValue("Махачкала");
+        form.$("[data-test-id='city'] .input__control").setValue("Москва");
         form.$("[data-test-id='date'] .input__control").sendKeys(Keys.CONTROL + "a"); //выделяет текст в поле
         form.$("[data-test-id='date'] .input__control").sendKeys(Keys.DELETE); // удаляет выделеный текст
         form.$("[data-test-id='date'] .input__control").setValue(planing);
-        form.$("[data-test-id='name'] .input__control").setValue("Мирча Луческу");
+        form.$("[data-test-id='name'] .input__control").setValue("Иван Иванов");
         form.$("[data-test-id='phone'] .input__control").setValue("+79880000000");
         form.$("[data-test-id='agreement']").click();
         $(".button").click();
