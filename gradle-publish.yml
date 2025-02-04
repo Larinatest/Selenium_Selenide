@@ -1,8 +1,12 @@
-     name: Java CI with Gradle
-on: [push, pull_request]
+name: Java CI with Gradle
+
+on: [ push, pull_request ]
+
 jobs:
   build:
+
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v2
       - name: Set up JDK 11
@@ -17,10 +21,9 @@ jobs:
         # имя файла SUT будет отличаться в каждой задаче.
         # & означает, что в фоновом режиме не блокируем терминал для запуска тестов,
         # обязательно должен быть для запуска SUT в CI
-        run: java -jar ./artifacts/app-card-delivery.jar &
+        run: java -jar ./artifacts/app-order.jar &
       - name: Build with Gradle
         # Запускаем автотесты
         # Для проектов на базе Selenide необходимо добавить параметр для запуска браузера
         # в headless режиме -Dselenide.headless=true, параметр --info должен остаться
         run: ./gradlew clean test -Dselenide.headless=true
-        run: ./gradlew clean test --info -Dselenide.headless=true
